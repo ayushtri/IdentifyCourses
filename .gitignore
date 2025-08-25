@@ -33,5 +33,5 @@ pom.xml.next
 
 /target/
 /test-output/
-*.allure/
+/.allure/
 
