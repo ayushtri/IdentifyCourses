@@ -1,0 +1,150 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.identifycourses</groupId>
+  <artifactId>IdentifyCourses</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties> 
+  	<selenium.version>4.35.0</selenium.version>
+    <testng.version>7.11.0</testng.version>
+  	<apache.poi.version>5.4.1</apache.poi.version>
+  	<webdrivermanager.version>6.2.0</webdrivermanager.version>
+  	<log4j-core.version>2.25.1</log4j-core.version>
+  	<log4j-api.version>2.25.1</log4j-api.version>
+  	<log4j-slf4j2-impl.version>2.25.1</log4j-slf4j2-impl.version>
+  	<maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+  	<maven-surefire-plugin.version>3.5.3</maven-surefire-plugin.version>
+  	<cucumber-java.version>7.27.2</cucumber-java.version>
+  	<cucumber-testng.version>7.27.1</cucumber-testng.version>
+  	<jackson.version>2.19.2</jackson.version>
+  	<allure-cucumber.version>2.29.1</allure-cucumber.version>
+  	<allure-maven.version>2.15.2</allure-maven.version>
+  	<allure-testng.version>2.29.1</allure-testng.version>
+  </properties>
+  
+  <build>
+  	<pluginManagement>
+  		<plugins>
+  			<plugin>
+	          <groupId>org.apache.maven.plugins</groupId>
+	          <artifactId>maven-compiler-plugin</artifactId>
+	          <version>${maven-compiler-plugin.version}</version>
+        	</plugin>
+        	
+        	<plugin>
+	          <groupId>org.apache.maven.plugins</groupId>
+	          <artifactId>maven-surefire-plugin</artifactId>
+	          <version>${maven-surefire-plugin.version}</version>
+	          <configuration>
+	          	<suiteXmlFiles>
+	          		<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+	          	</suiteXmlFiles>
+	          </configuration>
+        	</plugin>
+        	
+        	<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-maven -->
+			<plugin>
+			    <groupId>io.qameta.allure</groupId>
+			    <artifactId>allure-maven</artifactId>
+			    <version>${allure-maven.version}</version>
+			</plugin>
+  		</plugins>
+  	</pluginManagement>
+  </build>
+  
+  <dependencies>
+  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+	<dependency>
+	    <groupId>org.seleniumhq.selenium</groupId>
+	    <artifactId>selenium-java</artifactId>
+	    <version>${selenium.version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+	<dependency>
+	    <groupId>org.testng</groupId>
+	    <artifactId>testng</artifactId>
+	    <version>${testng.version}</version>
+	    <scope>test</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi</artifactId>
+	    <version>${apache.poi.version}</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi-ooxml</artifactId>
+	    <version>${apache.poi.version}</version>
+	</dependency>
+
+	
+	<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+	<dependency>
+	    <groupId>io.github.bonigarcia</groupId>
+	    <artifactId>webdrivermanager</artifactId>
+	    <version>${webdrivermanager.version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-core</artifactId>
+	    <version>${log4j-core.version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-api</artifactId>
+	    <version>${log4j-api.version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-slf4j2-impl</artifactId>
+	    <version>${log4j-slf4j2-impl.version}</version>
+	    <scope>compile</scope>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-java</artifactId>
+	    <version>${cucumber-java.version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-testng</artifactId>
+	    <version>${cucumber-testng.version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+	<dependency>
+	    <groupId>com.fasterxml.jackson.core</groupId>
+	    <artifactId>jackson-databind</artifactId>
+	    <version>${jackson.version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber7-jvm -->
+	<dependency>
+	    <groupId>io.qameta.allure</groupId>
+	    <artifactId>allure-cucumber7-jvm</artifactId>
+	    <version>${allure-cucumber.version}</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-testng -->
+	<dependency>
+	    <groupId>io.qameta.allure</groupId>
+	    <artifactId>allure-testng</artifactId>
+	    <version>${allure-testng.version}</version>
+	</dependency>
+
+  </dependencies>
+</project>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="IdentifyCoursesTestSuite" thread-count="5" parallel="tests"> 
+
+	<listeners>
+		<listener class-name="com.identifycourses.rerun.RetryListener"></listener>
+	</listeners>
+
+    <test name="IdentifyCoursesTestChrome" preserve-order="true">
+	    <parameter name="os" value="Windows"/>  
+		<parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.identifycourses.tests.TestRunner"/>
+        </classes>
+    </test>
+    
+<!--    <test name="IdentifyCoursesTestEdge" preserve-order="true">-->
+<!--	    <parameter name="os" value="Windows"/>  -->
+<!--		<parameter name="browser" value="edge"/>-->
+<!--        <classes>-->
+<!--            <class name="com.identifycourses.tests.TestRunner"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+    
+    
+</suite>

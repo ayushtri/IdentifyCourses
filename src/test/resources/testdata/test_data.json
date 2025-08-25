@@ -1,0 +1,13 @@
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "john.doe@example.com",
+  "phoneNumber": "1234567890",
+  "institutionType": "University/4 Year College",
+  "institutionName": "Example University",
+  "jobRole": "Chancellor/Rector",
+  "department": "Academic Affairs",
+  "needs": "Existing customer support",
+  "country": "United States",
+  "state": "CA"
+}

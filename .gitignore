@@ -1,0 +1,32 @@
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+*.log
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.db
+*.iml
+*.hprof
+*.log
+*.javadoc
+*.class
+*.project
+*.settings/
+.idea/
