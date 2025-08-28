@@ -29,11 +29,6 @@ public class LanguageLearningFiltersSteps {
 	public void goTo() {
 	    languageLearningPage.navigateToLanguageLearning();
 	}
-	
-	@When("I click on first popular topic")
-	public void clickFirstPopularTopic() {
-		languageLearningPage.clickOnFirstPopularTopic();
-	}
 
 	@When("I extract the list of all available languages with their respective counts")
 	public void extractLanguagesWithCounts() {
@@ -51,12 +46,13 @@ public class LanguageLearningFiltersSteps {
 
 	@Then("I display the languages and levels with their total counts")
 	public void i_display_the_languages_and_levels_with_their_total_counts() {
+		logger.info("Languages with counts: ");
 	    allLanguageDetails.forEach(n -> {
 	    	logger.info(n);
 	    	Assert.assertNotNull(n.getLanguage(), "Language should not be null");
 	        Assert.assertTrue(n.getCount() > 0, "Language count should be greater than zero");
 	    });
-	    
+	    logger.info("Languages levels with counts: ");
 	    allLanguageLevels.forEach(n -> {
 	    	logger.info(n);
 	    	Assert.assertNotNull(n.getLanguageLevel(), "Language level should not be null");

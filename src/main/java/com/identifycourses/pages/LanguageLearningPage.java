@@ -28,17 +28,11 @@ public class LanguageLearningPage extends BasePage {
 	@FindBy(linkText = "Language Learning")
 	private WebElement languageLearning;
 	
-	@FindBy(xpath = "//h3[text()='Popular Topics']//following-sibling::div//div")
-	private List<WebElement> popularTopics;
-	
-	@FindBy(xpath = "//div[@data-testid=\"search-filter-group-Language\"]//span[contains(text(), 'Show')]")
+	@FindBy(xpath = "//div[@data-testid='search-filter-group-Language']//span[contains(text(), 'Show')]")
 	private WebElement langaugesShowMore;
 	
-	@FindBy(xpath = "//div[@aria-label = 'Select Language options']//div[@class='cds-checkboxAndRadio-labelText']")
+	@FindBy(xpath = "//div[contains(@data-testid, 'language')]")
 	private List<WebElement> allLanguages;
-	
-	@FindBy(xpath = "//button[@aria-label='Close' and @tabindex='0']")
-	private WebElement languagePopCloseBtn;
 	
 	@FindBy(xpath = "//div[contains(@data-testid, 'productDifficultyLevel')]")
 	private List<WebElement> allLanguagesLevels;
@@ -57,20 +51,6 @@ public class LanguageLearningPage extends BasePage {
 			
 		} catch(Exception e) {
 			logger.error("Error occurred while navigating to Language Learning Page", e);
-		}
-	}
-	
-	public void clickOnFirstPopularTopic() {
-		try {
-			String scrollScript = "arguments[0].scrollIntoView({block: 'center'});";
-			logger.info("Scrolling to Popular topics element");
-			js.executeScript(scrollScript, popularTopics.get(0));
-			
-			logger.info("Feteching popular topics");
-			popularTopics.get(0).click();
-			
-		} catch(Exception e) {
-			logger.error("Can't fetch popular topics", e);
 		}
 	}
 	
@@ -100,7 +80,6 @@ public class LanguageLearningPage extends BasePage {
 				
 				allLanguageDetails.add(languageDetails);
 			}
-			languagePopCloseBtn.click();
 			
 		} catch(Exception e) {
 			logger.error("Error in fetching all languages", e);
