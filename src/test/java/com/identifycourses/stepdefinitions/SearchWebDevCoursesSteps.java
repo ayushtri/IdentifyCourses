@@ -34,12 +34,12 @@ public class SearchWebDevCoursesSteps {
 
 	@When("I apply the filter for Beginner level")
 	public void applyFilterForBeginnerLevel() {
-	    searchPage.filterBeginnerLevel();
+	    Assert.assertTrue(searchPage.filterBeginnerLevel(), "Couldn't apply filter Beginner level");
 	}
 
 	@When("I apply the filter for English language")
 	public void applyFilterEnglishLanguage() {
-	    searchPage.filterCourseLanguage();
+	    Assert.assertTrue(searchPage.filterCourseLanguage(), "Couldn't apply filter English language");
 	}
 
 	@Then("I should see the first {int} courses displayed and display their course names, total learning hours and ratings")

@@ -19,54 +19,68 @@ public class SearchPage extends BasePage {
 	
 	private JavascriptExecutor js;
 	
-	@FindBy(xpath = "//*[text()='Beginner']")
+	@FindBy(xpath = "//div[@class='filterContent']//span[text()='Beginner']")
 	private WebElement courseLevel;
 	
-	@FindBy(xpath = "//*[contains(@data-testid, 'language:English')]")
+	@FindBy(xpath = "//*[contains(@data-testid, 'language:English')]//label")
 	private WebElement courseLanguage;
 	
-	@FindBy(xpath = "//*[@data-testid='product-card-cds']")
+	@FindBy(xpath = "//div[contains(@id, 'searchResults')]//*[@data-testid='product-card-cds']")
 	private List<WebElement> searchCards;
+	
+	@FindBy(xpath = "//button//span[text()='Language: English']")
+	private WebElement englishLanguageBtn;
+	
+	@FindBy(xpath = "//button//span[text()='Beginner']")
+	private WebElement beginnerLevelBtn;
 	
 	public SearchPage() {
 		super();
 		this.js = (JavascriptExecutor) driver;
 	}
 	
-	public void filterBeginnerLevel() {
+	public boolean filterBeginnerLevel() {
 		try {
 			wait.until(ExpectedConditions.visibilityOf(courseLevel));
-			String scrollScript = "arguments[0].scrollIntoView()";
+			String scrollScript = "arguments[0].scrollIntoView({block: 'center'});";
 			
 			logger.info("Scrolling to beginner level element");
 			
 			js.executeScript(scrollScript, courseLevel);
 			
+			wait.until(ExpectedConditions.elementToBeClickable(courseLevel));
 			logger.info("Clicking beginner level element");
 			courseLevel.click();
 			
 			logger.info("Clicked beginner level element");
+			
+			return wait.until(ExpectedConditions.visibilityOf(beginnerLevelBtn)).isDisplayed();
 		} catch(Exception e) {
 			logger.error("Error occured while scrolling and clicking beginner level", e);
 		}
+		return false;
 	}
 	
-	public void filterCourseLanguage() {
+	public boolean filterCourseLanguage() {
 		try {
 			wait.until(ExpectedConditions.visibilityOf(courseLanguage));
-			String scrollScript = "arguments[0].scrollIntoView()";
+			String scrollScript = "arguments[0].scrollIntoView({block: 'center'});";
 			
 			logger.info("Scrolling to English language element");
 			
 			js.executeScript(scrollScript, courseLanguage);
 			
+			wait.until(ExpectedConditions.elementToBeClickable(courseLanguage));
 			logger.info("Clicking English language element");
 			courseLanguage.click();
 			
 			logger.info("Clicked English language element");
+			
+			return wait.until(ExpectedConditions.visibilityOf(englishLanguageBtn)).isDisplayed();
 		} catch(Exception e) {
 			logger.error("Error occured while scrolling and clicking English language", e);
 		}
+		return false;
 	}
 	
 	public List<SearchResults> extractCourseDetails(int n) {
@@ -78,7 +92,7 @@ public class SearchPage extends BasePage {
 				WebElement titleElement = card.findElement(By.cssSelector("h3"));
 	            String courseName = titleElement.getText();
 	            
-	            WebElement ratingElement = card.findElement(By.cssSelector("[aria-label^='Rating'] span"));
+	            WebElement ratingElement = card.findElement(By.xpath("//*[@aria-label='Rating']//span"));
 	            String rating = ratingElement.getText();
 	            
 	            WebElement durationElement = card.findElement(By.xpath("//p[contains(text(),'Course')]"));
