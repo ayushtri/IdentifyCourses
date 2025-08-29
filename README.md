@@ -38,7 +38,6 @@ Before running the tests, ensure you have the following installed:
 
 3. **Web Browsers**
    - Chrome (latest version)
-   - Firefox (latest version)
    - Edge (latest version)
 
 ### Required JAR Files & Tools
@@ -56,7 +55,7 @@ Before running the tests, ensure you have the following installed:
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/ayushtri/IdentifyCourses.git
 cd IdentifyCourses
 ```
 
@@ -113,6 +112,8 @@ This will:
 ### Method 2: Maven Commands (Direct Execution)
 
 #### Local Execution
+First Change `execution_env=local` in `config.properties`. Then,
+
 ```bash
 # Run all tests
 mvn clean test
@@ -126,7 +127,7 @@ allure open test-output/allure-report
 ```
 
 ### Method 3: IDE Execution
-Run `src/test/java/com/identifycourses/tests/TestRunner.java` directly from your IDE.
+Run `src/test/java/com/identifycourses/tests/pom.xml` directly from your IDE as Maven test.
 
 ## ⚙️ Configuration for Different Environments
 
@@ -263,23 +264,5 @@ IdentifyCourses/
 ├── run.bat                    # Test execution script
 └── pom.xml                    # Maven configuration
 ```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add/update tests as needed
-5. Ensure all tests pass
-6. Submit a pull request
-
-## 📞 Support
-
-For issues or questions:
-1. Check the troubleshooting section
-2. Review logs in console output
-3. Check Allure reports for detailed test execution information
-
----
 
 **Happy Testing! 🚀** 
