@@ -4,12 +4,10 @@ import java.util.List;
 
 import org.testng.Assert;
 
-import com.identifycourses.base.DriverSetup;
 import com.identifycourses.models.SearchResults;
 import com.identifycourses.pages.HomePage;
 import com.identifycourses.pages.SearchPage;
 
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -20,11 +18,6 @@ public class SearchWebDevCoursesSteps {
 	public SearchWebDevCoursesSteps() {
 		this.searchPage = new SearchPage();
 		this.homePage = new HomePage();
-	}
-	
-	@Given("I open the Coursera homepage")
-	public void openCourseraHomepage() {
-	    DriverSetup.navigateToApplication();
 	}
 
 	@When("I search for courses of {string}")
