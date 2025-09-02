@@ -1,6 +1,9 @@
 @echo off
 cd /d "C:\Users\2421230\OneDrive - Cognizant\Desktop\IdentifyCourses"
 
+echo Deleting old screenshots...
+rmdir /s /q "test-output\screenshots"
+
 echo Running Maven Tests...
 call mvn clean test
 
